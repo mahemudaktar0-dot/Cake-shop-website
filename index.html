@@ -3,60 +3,334 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sweet Crumbs | Premium Cakes</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#fff9f5;color:#3b2420}
-header{position:sticky;top:0;z-index:10;background:#fff9f5;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eadbd5}
-.logo{font-size:22px;font-weight:bold;color:#7b4034}
-nav a{margin:0 10px;text-decoration:none;color:#3b2420}
-button,.btn{cursor:pointer;border:0;border-radius:25px;padding:12px 18px;font-weight:bold}
-.btn{background:#7b4034;color:white;text-decoration:none;display:inline-block}
-.cart{background:#7b4034;color:white}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-.hero{padding:70px 6%;min-height:75vh;display:flex;align-items:center;gap:40px;background:linear-gradient(120deg,#fff3eb,#f6ddd2)}
-.hero-text{flex:1}
-.hero h1{font-size:clamp(42px,8vw,75px);line-height:1;margin-bottom:20px}
-.hero h1 span{color:#a95543}
-.hero p{font-size:18px;line-height:1.7;margin-bottom:25px}
-.hero img{width:45%;height:420px;object-fit:cover;border-radius:30px}
+html{
+  scroll-behavior:smooth;
+}
 
-section{padding:65px 6%}
-.title{text-align:center;font-size:35px;margin-bottom:35px}
-.categories{text-align:center;margin-bottom:30px}
-.categories button{margin:5px;background:white;border:1px solid #d9bbb0}
-.categories button.active,.categories button:hover{background:#7b4034;color:white}
+body{
+  font-family:Arial,sans-serif;
+  background:#fff8f5;
+  color:#3b2420;
+}
 
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
-.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 25px #00000012}
-.card img{width:100%;height:210px;object-fit:cover}
-.card-body{padding:18px}
-.card h3{margin-bottom:8px}
-.price{font-size:20px;color:#a95543;font-weight:bold;margin:12px 0}
-.add{width:100%;background:#7b4034;color:white}
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:white;
+  padding:15px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
 
-.features{background:#f7e7df}
-.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;text-align:center}
-.feature{background:white;padding:25px;border-radius:18px}
-.feature div{font-size:35px;margin-bottom:10px}
+.logo{
+  font-size:23px;
+  font-weight:bold;
+  color:#b74343;
+}
 
-.contact{text-align:center}
-.contact p{margin:12px}
+nav{
+  display:flex;
+  gap:20px;
+}
 
-footer{background:#3b2420;color:white;text-align:center;padding:30px}
+nav a{
+  text-decoration:none;
+  color:#3b2420;
+  font-weight:bold;
+}
 
-.modal{display:none;position:fixed;inset:0;background:#0008;z-index:100;padding:20px;overflow:auto}
-.box{background:white;max-width:550px;margin:20px auto;padding:25px;border-radius:20px}
-.close{float:right;background:none;font-size:25px;padding:0}
-.cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
-select,input,textarea{width:100%;padding:12px;margin:7px 0 12px;border:1px solid #ddd;border-radius:10px}
-.order{width:100%;background:#25d366;color:white;font-size:16px}
+.cart-btn{
+  background:#b74343;
+  color:white;
+  border:0;
+  padding:11px 18px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.hero{
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding:70px 7%;
+  background:linear-gradient(120deg,#fff0e8,#ffd9df);
+}
+
+.hero-text{
+  flex:1;
+}
+
+.hero h1{
+  font-size:clamp(40px,7vw,75px);
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:#b74343;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:25px;
+}
+
+.hero-btn{
+  display:inline-block;
+  background:#b74343;
+  color:white;
+  text-decoration:none;
+  padding:15px 25px;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+.hero img{
+  width:45%;
+  max-width:520px;
+  height:420px;
+  object-fit:cover;
+  border-radius:30px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+section{
+  padding:65px 7%;
+}
+
+.section-title{
+  text-align:center;
+  font-size:35px;
+  margin-bottom:35px;
+}
+
+.categories{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.categories button{
+  margin:5px;
+  padding:10px 18px;
+  border:1px solid #e0b9b0;
+  background:white;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.categories button:hover,
+.categories button.active{
+  background:#b74343;
+  color:white;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.09);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:18px;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+.price{
+  color:#b74343;
+  font-size:20px;
+  font-weight:bold;
+  margin:12px 0;
+}
+
+.add-btn{
+  width:100%;
+  background:#b74343;
+  color:white;
+  border:0;
+  padding:12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.features{
+  background:#fff0ea;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+}
+
+.feature{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+}
+
+.feature div{
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+.contact{
+  text-align:center;
+}
+
+.contact p{
+  margin:12px;
+  font-size:17px;
+}
+
+footer{
+  background:#3b2420;
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:2000;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  padding:15px 20px;
+  border-radius:30px;
+  font-weight:bold;
+  box-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+/* CART */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:3000;
+  padding:20px;
+  overflow:auto;
+}
+
+.cart-box{
+  background:white;
+  max-width:550px;
+  margin:30px auto;
+  padding:25px;
+  border-radius:20px;
+}
+
+.close{
+  float:right;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid #eee;
+}
+
+.qty button{
+  border:0;
+  background:#b74343;
+  color:white;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.checkout{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#25D366;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.empty{
+  text-align:center;
+  padding:25px;
+}
 
 @media(max-width:700px){
-nav{display:none}
-.hero{flex-direction:column;text-align:center;padding-top:45px}
-.hero img{width:100%;height:330px}
+
+  header{
+    padding:13px 4%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding:50px 5%;
+  }
+
+  .hero img{
+    width:100%;
+    height:300px;
+  }
+
+  section{
+    padding:50px 5%;
+  }
+
+  .whatsapp{
+    bottom:15px;
+    right:15px;
+  }
 }
 </style>
 </head>
@@ -64,278 +338,554 @@ nav{display:none}
 <body>
 
 <header>
+
 <div class="logo">🎂 Sweet Crumbs</div>
 
 <nav>
 <a href="#home">Home</a>
 <a href="#cakes">Cakes</a>
+<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<button class="cart" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</button>
+
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero" id="home">
+
 <div class="hero-text">
-<h1>Freshly Baked <span>Happiness.</span></h1>
-<p>Premium handmade cakes for birthdays, celebrations, weddings and every sweet moment.</p>
-<a class="btn" href="#cakes">Explore Cakes →</a>
+
+<h1>
+Fresh Cakes.<br>
+<span>Sweet Memories.</span>
+</h1>
+
+<p>
+Delicious handmade cakes for birthdays,
+anniversaries, weddings and every special moment.
+</p>
+
+<a href="#cakes" class="hero-btn">
+🍰 Explore Cakes
+</a>
+
 </div>
 
-<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80">
+<img
+src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80"
+alt="Delicious Cake">
+
 </section>
+
+
+<!-- CAKES -->
 
 <section id="cakes">
-<h2 class="title">Our Cakes</h2>
+
+<h2 class="section-title">
+Our Delicious Cakes
+</h2>
 
 <div class="categories">
-<button class="active" onclick="filter('all',this)">All</button>
-<button onclick="filter('birthday',this)">Birthday</button>
-<button onclick="filter('chocolate',this)">Chocolate</button>
-<button onclick="filter('eggless',this)">Eggless</button>
+
+<button class="active" onclick="filterCakes('all',this)">
+All
+</button>
+
+<button onclick="filterCakes('birthday',this)">
+Birthday
+</button>
+
+<button onclick="filterCakes('chocolate',this)">
+Chocolate
+</button>
+
+<button onclick="filterCakes('fruit',this)">
+Fruit
+</button>
+
 </div>
 
-<div class="products" id="products"></div>
+
+<div class="products" id="products">
+
+
+<!-- CAKE 1 -->
+
+<div class="card" data-category="birthday">
+
+<img
+src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+alt="Chocolate Birthday Cake">
+
+<div class="card-body">
+
+<h3>Classic Birthday Cake</h3>
+
+<p>Soft sponge with creamy frosting.</p>
+
+<div class="price">₹599</div>
+
+<button class="add-btn"
+onclick="addToCart('Classic Birthday Cake',599)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 2 -->
+
+<div class="card" data-category="chocolate">
+
+<img
+src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+alt="Chocolate Cake">
+
+<div class="card-body">
+
+<h3>Chocolate Dream</h3>
+
+<p>Rich chocolate cake with chocolate cream.</p>
+
+<div class="price">₹699</div>
+
+<button class="add-btn"
+onclick="addToCart('Chocolate Dream',699)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 3 -->
+
+<div class="card" data-category="fruit">
+
+<img
+src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"
+alt="Fruit Cake">
+
+<div class="card-body">
+
+<h3>Fresh Fruit Cake</h3>
+
+<p>Fresh seasonal fruits with soft cream.</p>
+
+<div class="price">₹749</div>
+
+<button class="add-btn"
+onclick="addToCart('Fresh Fruit Cake',749)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 4 -->
+
+<div class="card" data-category="birthday">
+
+<img
+src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=700&q=80"
+alt="Vanilla Cake">
+
+<div class="card-body">
+
+<h3>Vanilla Celebration</h3>
+
+<p>Classic vanilla sponge with creamy frosting.</p>
+
+<div class="price">₹549</div>
+
+<button class="add-btn"
+onclick="addToCart('Vanilla Celebration',549)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 5 -->
+
+<div class="card" data-category="chocolate">
+
+<img
+src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?auto=format&fit=crop&w=700&q=80"
+alt="Chocolate Cake">
+
+<div class="card-body">
+
+<h3>Dark Chocolate</h3>
+
+<p>Premium dark chocolate cake.</p>
+
+<div class="price">₹799</div>
+
+<button class="add-btn"
+onclick="addToCart('Dark Chocolate',799)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 6 -->
+
+<div class="card" data-category="fruit">
+
+<img
+src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80"
+alt="Strawberry Cake">
+
+<div class="card-body">
+
+<h3>Strawberry Cream</h3>
+
+<p>Fresh strawberry cake with whipped cream.</p>
+
+<div class="price">₹699</div>
+
+<button class="add-btn"
+onclick="addToCart('Strawberry Cream',699)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+</div>
 </section>
 
-<section class="features">
-<h2 class="title">Why Choose Us?</h2>
+
+<!-- FEATURES -->
+
+<section class="features" id="about">
+
+<h2 class="section-title">
+Why Choose Sweet Crumbs?
+</h2>
 
 <div class="feature-grid">
-<div class="feature"><div>🍰</div><h3>Freshly Baked</h3><p>Made fresh for every order.</p></div>
-<div class="feature"><div>🎨</div><h3>Custom Designs</h3><p>Your cake, your imagination.</p></div>
-<div class="feature"><div>🥚</div><h3>Eggless Options</h3><p>Delicious eggless cakes.</p></div>
-<div class="feature"><div>🚚</div><h3>Local Delivery</h3><p>Fast local delivery.</p></div>
+
+<div class="feature">
+<div>🎂</div>
+<h3>Freshly Baked</h3>
+<p>Made fresh for every order.</p>
 </div>
+
+<div class="feature">
+<div>❤️</div>
+<h3>Made With Love</h3>
+<p>Carefully prepared for you.</p>
+</div>
+
+<div class="feature">
+<div>🚚</div>
+<h3>Fast Delivery</h3>
+<p>Fresh cakes delivered safely.</p>
+</div>
+
+<div class="feature">
+<div>✨</div>
+<h3>Premium Quality</h3>
+<p>Quality ingredients in every cake.</p>
+</div>
+
+</div>
+
 </section>
 
-<section>
-<h2 class="title">What Our Customers Say</h2>
 
-<div class="feature-grid">
-<div class="feature"><p>⭐⭐⭐⭐⭐</p><br><p>"Beautiful cake and amazing taste!"</p><br><b>— Priya</b></div>
-<div class="feature"><p>⭐⭐⭐⭐⭐</p><br><p>"Perfect birthday cake. Loved it!"</p><br><b>— Rahul</b></div>
-<div class="feature"><p>⭐⭐⭐⭐⭐</p><br><p>"Fresh, delicious and delivered on time."</p><br><b>— Ananya</b></div>
-</div>
-</section>
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
-<h2 class="title">Visit Sweet Crumbs</h2>
-<p>📍 Bangalore, Karnataka</p>
-<p>📞 +91 99999 99999</p>
-<p>🕐 Open daily: 10 AM – 10 PM</p>
-<br>
-<a class="btn" href="https://wa.me/919999999999">💬 WhatsApp Us</a>
+
+<h2 class="section-title">
+Contact Us
+</h2>
+
+<p>📞 Call: 9907527095</p>
+
+<p>💬 WhatsApp: 9907527095</p>
+
+<p>📍 Your Cake Shop Address</p>
+
+<p>
+For custom cakes and special orders,
+contact us directly on WhatsApp.
+</p>
+
 </section>
 
+
 <footer>
-<p>© 2026 Sweet Crumbs • Freshly Baked With Love 🎂</p>
+
+<p>© 2026 Sweet Crumbs</p>
+
+<p>Fresh Cakes • Sweet Memories</p>
+
 </footer>
 
-<div class="modal" id="modal">
-<div class="box">
 
-<button class="close" onclick="closeCart()">×</button>
+<!-- WHATSAPP -->
 
-<h2>Your Cart 🛒</h2>
-<br>
+<a
+class="whatsapp"
+href="https://wa.me/919907527095?text=Hi%20Sweet%20Crumbs%2C%20I%20want%20to%20order%20a%20cake."
+target="_blank">
 
-<div id="cart"></div>
+💬 Order on WhatsApp
 
-<h3>Total: ₹<span id="total">0</span></h3>
-<br>
+</a>
 
-<label>Your Name</label>
-<input id="name" placeholder="Enter your name">
 
-<label>Phone Number</label>
-<input id="phone" placeholder="Enter phone number">
+<!-- CART MODAL -->
 
-<label>Delivery Address</label>
-<textarea id="address" placeholder="Enter delivery address"></textarea>
+<div class="modal" id="cartModal">
 
-<label>Delivery Option</label>
-<select id="delivery">
-<option>Home Delivery</option>
-<option>Store Pickup</option>
-</select>
+<div class="cart-box">
 
-<button class="order" onclick="order()">📲 Order on WhatsApp</button>
+<span class="close" onclick="closeCart()">×</span>
+
+<h2>🛒 Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<h3 id="cartTotal"></h3>
+
+<button class="checkout" onclick="checkoutWhatsApp()">
+💬 Order on WhatsApp
+</button>
 
 </div>
+
 </div>
+
 
 <script>
 
-const cakes=[
-{
-name:"Chocolate Truffle",
-type:"chocolate",
-price:699,
-img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Strawberry Dream",
-type:"birthday",
-price:649,
-img:"https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Classic Birthday",
-type:"birthday",
-price:599,
-img:"https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Eggless Chocolate",
-type:"eggless",
-price:749,
-img:"https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Red Velvet",
-type:"birthday",
-price:799,
-img:"https://images.unsplash.com/photo-1586788224331-947f68671cf1?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Chocolate Celebration",
-type:"chocolate",
-price:899,
-img:"https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=80"
-}
-];
+let cart = [];
 
-let cart=[];
 
-function show(type="all"){
-const box=document.getElementById("products");
-box.innerHTML="";
+function addToCart(name,price){
 
-cakes.filter(c=>type==="all"||c.type===type).forEach((c,i)=>{
-box.innerHTML+=`
-<div class="card">
-<img src="${c.img}">
-<div class="card-body">
-<h3>${c.name}</h3>
-<p>Fresh premium cake</p>
-<div class="price">Starting ₹${c.price}</div>
+let existing = cart.find(item => item.name === name);
 
-<select id="size${i}">
-<option value="0">0.5 kg</option>
-<option value="200">1 kg (+₹200)</option>
-<option value="400">1.5 kg (+₹400)</option>
-<option value="600">2 kg (+₹600)</option>
-</select>
+if(existing){
 
-<button class="add" onclick="add(${i},${c.price},'${c.name}')">Add to Cart</button>
-</div>
-</div>`;
-});
-}
+existing.quantity++;
 
-function add(i,price,name){
-
-let extra=document.getElementById("size"+i).value;
-
-let size=document.getElementById("size"+i).selectedOptions[0].text;
+}else{
 
 cart.push({
 name:name,
-size:size,
-price:Number(price)+Number(extra)
+price:price,
+quantity:1
 });
-
-update();
-
-alert(name+" added to cart!");
 
 }
 
-function update(){
+updateCart();
 
-document.getElementById("count").innerText=cart.length;
+alert(name + " added to cart!");
 
-let box=document.getElementById("cart");
-box.innerHTML="";
-let total=0;
+}
 
-cart.forEach((c,i)=>{
-total+=c.price;
 
-box.innerHTML+=`
+function updateCart(){
+
+let count = 0;
+
+cart.forEach(item=>{
+count += item.quantity;
+});
+
+document.getElementById("cartCount").innerText = count;
+
+renderCart();
+
+}
+
+
+function renderCart(){
+
+let container = document.getElementById("cartItems");
+
+let total = 0;
+
+if(cart.length === 0){
+
+container.innerHTML =
+'<div class="empty">Your cart is empty 🎂</div>';
+
+document.getElementById("cartTotal").innerText = "";
+
+return;
+
+}
+
+
+container.innerHTML = "";
+
+
+cart.forEach((item,index)=>{
+
+let itemTotal = item.price * item.quantity;
+
+total += itemTotal;
+
+container.innerHTML += `
+
 <div class="cart-item">
+
 <div>
-<b>${c.name}</b><br>
-<small>${c.size}</small>
+<strong>${item.name}</strong>
+<br>
+₹${item.price} × ${item.quantity}
 </div>
-<b>₹${c.price}</b>
-<button onclick="removeItem(${i})">❌</button>
-</div>`;
+
+<div class="qty">
+
+<button onclick="changeQty(${index},-1)">−</button>
+
+<span> ${item.quantity} </span>
+
+<button onclick="changeQty(${index},1)">+</button>
+
+</div>
+
+</div>
+
+`;
+
 });
 
-document.getElementById("total").innerText=total;
+
+document.getElementById("cartTotal").innerText =
+"Total: ₹" + total;
+
 }
 
-function removeItem(i){
-cart.splice(i,1);
-update();
+
+function changeQty(index,change){
+
+cart[index].quantity += change;
+
+if(cart[index].quantity <= 0){
+
+cart.splice(index,1);
+
 }
+
+updateCart();
+
+}
+
 
 function openCart(){
-document.getElementById("modal").style.display="block";
-update();
+
+document.getElementById("cartModal").style.display = "block";
+
+renderCart();
+
 }
+
 
 function closeCart(){
-document.getElementById("modal").style.display="none";
+
+document.getElementById("cartModal").style.display = "none";
+
 }
 
-function order(){
 
-if(cart.length===0){
-alert("Please add a cake first.");
+function checkoutWhatsApp(){
+
+if(cart.length === 0){
+
+alert("Please add a cake to your cart first!");
+
 return;
+
 }
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let address=document.getElementById("address").value;
-let delivery=document.getElementById("delivery").value;
 
-if(!name||!phone||!address){
-alert("Please fill all details.");
-return;
-}
+let message =
+"Hi Sweet Crumbs! I want to order:%0A%0A";
 
-let total=cart.reduce((s,c)=>s+c.price,0);
+let total = 0;
 
-let message="Hello Sweet Crumbs!%0A%0A";
-message+="I want to place an order:%0A%0A";
 
-cart.forEach(c=>{
-message+="🎂 "+c.name+" - "+c.size+" - ₹"+c.price+"%0A";
+cart.forEach(item=>{
+
+let itemTotal = item.price * item.quantity;
+
+total += itemTotal;
+
+message +=
+"🎂 " + item.name +
+" × " + item.quantity +
+" = ₹" + itemTotal + "%0A";
+
 });
 
-message+="%0A💰 Total: ₹"+total;
-message+="%0A👤 Name: "+encodeURIComponent(name);
-message+="%0A📞 Phone: "+encodeURIComponent(phone);
-message+="%0A📍 Address: "+encodeURIComponent(address);
-message+="%0A🚚 "+encodeURIComponent(delivery);
 
-window.open("https://wa.me/919999999999?text="+message,"_blank");
+message +=
+"%0A💰 Total: ₹" + total;
+
+
+window.open(
+"https://wa.me/919907527095?text=" + message,
+"_blank"
+);
+
 }
 
-function filter(type,button){
 
-document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+function filterCakes(category,button){
+
+let cards =
+document.querySelectorAll(".card");
+
+document
+.querySelectorAll(".categories button")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
 
 button.classList.add("active");
 
-show(type);
+
+cards.forEach(card=>{
+
+if(
+category === "all" ||
+card.dataset.category === category
+){
+
+card.style.display = "block";
+
+}else{
+
+card.style.display = "none";
+
 }
 
-show();
+});
+
+}
 
 </script>
 
@@ -345,60 +895,334 @@ show();
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sweet Crumbs | Premium Cakes</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#fff9f5;color:#3b2420}
-header{position:sticky;top:0;z-index:10;background:#fff9f5;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eadbd5}
-.logo{font-size:22px;font-weight:bold;color:#7b4034}
-nav a{margin:0 10px;text-decoration:none;color:#3b2420}
-button,.btn{cursor:pointer;border:0;border-radius:25px;padding:12px 18px;font-weight:bold}
-.btn{background:#7b4034;color:white;text-decoration:none;display:inline-block}
-.cart{background:#7b4034;color:white}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-.hero{padding:70px 6%;min-height:75vh;display:flex;align-items:center;gap:40px;background:linear-gradient(120deg,#fff3eb,#f6ddd2)}
-.hero-text{flex:1}
-.hero h1{font-size:clamp(42px,8vw,75px);line-height:1;margin-bottom:20px}
-.hero h1 span{color:#a95543}
-.hero p{font-size:18px;line-height:1.7;margin-bottom:25px}
-.hero img{width:45%;height:420px;object-fit:cover;border-radius:30px}
+html{
+  scroll-behavior:smooth;
+}
 
-section{padding:65px 6%}
-.title{text-align:center;font-size:35px;margin-bottom:35px}
-.categories{text-align:center;margin-bottom:30px}
-.categories button{margin:5px;background:white;border:1px solid #d9bbb0}
-.categories button.active,.categories button:hover{background:#7b4034;color:white}
+body{
+  font-family:Arial,sans-serif;
+  background:#fff8f5;
+  color:#3b2420;
+}
 
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
-.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 25px #00000012}
-.card img{width:100%;height:210px;object-fit:cover}
-.card-body{padding:18px}
-.card h3{margin-bottom:8px}
-.price{font-size:20px;color:#a95543;font-weight:bold;margin:12px 0}
-.add{width:100%;background:#7b4034;color:white}
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:white;
+  padding:15px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
 
-.features{background:#f7e7df}
-.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;text-align:center}
-.feature{background:white;padding:25px;border-radius:18px}
-.feature div{font-size:35px;margin-bottom:10px}
+.logo{
+  font-size:23px;
+  font-weight:bold;
+  color:#b74343;
+}
 
-.contact{text-align:center}
-.contact p{margin:12px}
+nav{
+  display:flex;
+  gap:20px;
+}
 
-footer{background:#3b2420;color:white;text-align:center;padding:30px}
+nav a{
+  text-decoration:none;
+  color:#3b2420;
+  font-weight:bold;
+}
 
-.modal{display:none;position:fixed;inset:0;background:#0008;z-index:100;padding:20px;overflow:auto}
-.box{background:white;max-width:550px;margin:20px auto;padding:25px;border-radius:20px}
-.close{float:right;background:none;font-size:25px;padding:0}
-.cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
-select,input,textarea{width:100%;padding:12px;margin:7px 0 12px;border:1px solid #ddd;border-radius:10px}
-.order{width:100%;background:#25d366;color:white;font-size:16px}
+.cart-btn{
+  background:#b74343;
+  color:white;
+  border:0;
+  padding:11px 18px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.hero{
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding:70px 7%;
+  background:linear-gradient(120deg,#fff0e8,#ffd9df);
+}
+
+.hero-text{
+  flex:1;
+}
+
+.hero h1{
+  font-size:clamp(40px,7vw,75px);
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:#b74343;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:25px;
+}
+
+.hero-btn{
+  display:inline-block;
+  background:#b74343;
+  color:white;
+  text-decoration:none;
+  padding:15px 25px;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+.hero img{
+  width:45%;
+  max-width:520px;
+  height:420px;
+  object-fit:cover;
+  border-radius:30px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+section{
+  padding:65px 7%;
+}
+
+.section-title{
+  text-align:center;
+  font-size:35px;
+  margin-bottom:35px;
+}
+
+.categories{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.categories button{
+  margin:5px;
+  padding:10px 18px;
+  border:1px solid #e0b9b0;
+  background:white;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.categories button:hover,
+.categories button.active{
+  background:#b74343;
+  color:white;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.09);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:18px;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+.price{
+  color:#b74343;
+  font-size:20px;
+  font-weight:bold;
+  margin:12px 0;
+}
+
+.add-btn{
+  width:100%;
+  background:#b74343;
+  color:white;
+  border:0;
+  padding:12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.features{
+  background:#fff0ea;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+}
+
+.feature{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+}
+
+.feature div{
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+.contact{
+  text-align:center;
+}
+
+.contact p{
+  margin:12px;
+  font-size:17px;
+}
+
+footer{
+  background:#3b2420;
+  color:white;
+  text-align:center;
+  padding:30px;
+}
+
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:2000;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  padding:15px 20px;
+  border-radius:30px;
+  font-weight:bold;
+  box-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+/* CART */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:3000;
+  padding:20px;
+  overflow:auto;
+}
+
+.cart-box{
+  background:white;
+  max-width:550px;
+  margin:30px auto;
+  padding:25px;
+  border-radius:20px;
+}
+
+.close{
+  float:right;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid #eee;
+}
+
+.qty button{
+  border:0;
+  background:#b74343;
+  color:white;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.checkout{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#25D366;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.empty{
+  text-align:center;
+  padding:25px;
+}
 
 @media(max-width:700px){
-nav{display:none}
-.hero{flex-direction:column;text-align:center;padding-top:45px}
-.hero img{width:100%;height:330px}
+
+  header{
+    padding:13px 4%;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding:50px 5%;
+  }
+
+  .hero img{
+    width:100%;
+    height:300px;
+  }
+
+  section{
+    padding:50px 5%;
+  }
+
+  .whatsapp{
+    bottom:15px;
+    right:15px;
+  }
 }
 </style>
 </head>
@@ -406,278 +1230,554 @@ nav{display:none}
 <body>
 
 <header>
+
 <div class="logo">🎂 Sweet Crumbs</div>
 
 <nav>
 <a href="#home">Home</a>
 <a href="#cakes">Cakes</a>
+<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<button class="cart" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</button>
+
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero" id="home">
+
 <div class="hero-text">
-<h1>Freshly Baked <span>Happiness.</span></h1>
-<p>Premium handmade cakes for birthdays, celebrations, weddings and every sweet moment.</p>
-<a class="btn" href="#cakes">Explore Cakes →</a>
+
+<h1>
+Fresh Cakes.<br>
+<span>Sweet Memories.</span>
+</h1>
+
+<p>
+Delicious handmade cakes for birthdays,
+anniversaries, weddings and every special moment.
+</p>
+
+<a href="#cakes" class="hero-btn">
+🍰 Explore Cakes
+</a>
+
 </div>
 
-<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80">
+<img
+src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80"
+alt="Delicious Cake">
+
 </section>
+
+
+<!-- CAKES -->
 
 <section id="cakes">
-<h2 class="title">Our Cakes</h2>
+
+<h2 class="section-title">
+Our Delicious Cakes
+</h2>
 
 <div class="categories">
-<button class="active" onclick="filter('all',this)">All</button>
-<button onclick="filter('birthday',this)">Birthday</button>
-<button onclick="filter('chocolate',this)">Chocolate</button>
-<button onclick="filter('eggless',this)">Eggless</button>
+
+<button class="active" onclick="filterCakes('all',this)">
+All
+</button>
+
+<button onclick="filterCakes('birthday',this)">
+Birthday
+</button>
+
+<button onclick="filterCakes('chocolate',this)">
+Chocolate
+</button>
+
+<button onclick="filterCakes('fruit',this)">
+Fruit
+</button>
+
 </div>
 
-<div class="products" id="products"></div>
+
+<div class="products" id="products">
+
+
+<!-- CAKE 1 -->
+
+<div class="card" data-category="birthday">
+
+<img
+src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+alt="Chocolate Birthday Cake">
+
+<div class="card-body">
+
+<h3>Classic Birthday Cake</h3>
+
+<p>Soft sponge with creamy frosting.</p>
+
+<div class="price">₹599</div>
+
+<button class="add-btn"
+onclick="addToCart('Classic Birthday Cake',599)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 2 -->
+
+<div class="card" data-category="chocolate">
+
+<img
+src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+alt="Chocolate Cake">
+
+<div class="card-body">
+
+<h3>Chocolate Dream</h3>
+
+<p>Rich chocolate cake with chocolate cream.</p>
+
+<div class="price">₹699</div>
+
+<button class="add-btn"
+onclick="addToCart('Chocolate Dream',699)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 3 -->
+
+<div class="card" data-category="fruit">
+
+<img
+src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"
+alt="Fruit Cake">
+
+<div class="card-body">
+
+<h3>Fresh Fruit Cake</h3>
+
+<p>Fresh seasonal fruits with soft cream.</p>
+
+<div class="price">₹749</div>
+
+<button class="add-btn"
+onclick="addToCart('Fresh Fruit Cake',749)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 4 -->
+
+<div class="card" data-category="birthday">
+
+<img
+src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=700&q=80"
+alt="Vanilla Cake">
+
+<div class="card-body">
+
+<h3>Vanilla Celebration</h3>
+
+<p>Classic vanilla sponge with creamy frosting.</p>
+
+<div class="price">₹549</div>
+
+<button class="add-btn"
+onclick="addToCart('Vanilla Celebration',549)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 5 -->
+
+<div class="card" data-category="chocolate">
+
+<img
+src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?auto=format&fit=crop&w=700&q=80"
+alt="Chocolate Cake">
+
+<div class="card-body">
+
+<h3>Dark Chocolate</h3>
+
+<p>Premium dark chocolate cake.</p>
+
+<div class="price">₹799</div>
+
+<button class="add-btn"
+onclick="addToCart('Dark Chocolate',799)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<!-- CAKE 6 -->
+
+<div class="card" data-category="fruit">
+
+<img
+src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80"
+alt="Strawberry Cake">
+
+<div class="card-body">
+
+<h3>Strawberry Cream</h3>
+
+<p>Fresh strawberry cake with whipped cream.</p>
+
+<div class="price">₹699</div>
+
+<button class="add-btn"
+onclick="addToCart('Strawberry Cream',699)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+</div>
 </section>
 
-<section class="features">
-<h2 class="title">Why Choose Us?</h2>
+
+<!-- FEATURES -->
+
+<section class="features" id="about">
+
+<h2 class="section-title">
+Why Choose Sweet Crumbs?
+</h2>
 
 <div class="feature-grid">
-<div class="feature"><div>🍰</div><h3>Freshly Baked</h3><p>Made fresh for every order.</p></div>
-<div class="feature"><div>🎨</div><h3>Custom Designs</h3><p>Your cake, your imagination.</p></div>
-<div class="feature"><div>🥚</div><h3>Eggless Options</h3><p>Delicious eggless cakes.</p></div>
-<div class="feature"><div>🚚</div><h3>Local Delivery</h3><p>Fast local delivery.</p></div>
+
+<div class="feature">
+<div>🎂</div>
+<h3>Freshly Baked</h3>
+<p>Made fresh for every order.</p>
 </div>
+
+<div class="feature">
+<div>❤️</div>
+<h3>Made With Love</h3>
+<p>Carefully prepared for you.</p>
+</div>
+
+<div class="feature">
+<div>🚚</div>
+<h3>Fast Delivery</h3>
+<p>Fresh cakes delivered safely.</p>
+</div>
+
+<div class="feature">
+<div>✨</div>
+<h3>Premium Quality</h3>
+<p>Quality ingredients in every cake.</p>
+</div>
+
+</div>
+
 </section>
 
-<section>
-<h2 class="title">What Our Customers Say</h2>
 
-<div class="feature-grid">
-<div class="feature"><p>⭐⭐⭐⭐⭐</p><br><p>"Beautiful cake and amazing taste!"</p><br><b>— Priya</b></div>
-<div class="feature"><p>⭐⭐⭐⭐⭐</p><br><p>"Perfect birthday cake. Loved it!"</p><br><b>— Rahul</b></div>
-<div class="feature"><p>⭐⭐⭐⭐⭐</p><br><p>"Fresh, delicious and delivered on time."</p><br><b>— Ananya</b></div>
-</div>
-</section>
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
-<h2 class="title">Visit Sweet Crumbs</h2>
-<p>📍 Bangalore, Karnataka</p>
-<p>📞 +91 99999 99999</p>
-<p>🕐 Open daily: 10 AM – 10 PM</p>
-<br>
-<a class="btn" href="https://wa.me/919999999999">💬 WhatsApp Us</a>
+
+<h2 class="section-title">
+Contact Us
+</h2>
+
+<p>📞 Call: 9907527095</p>
+
+<p>💬 WhatsApp: 9907527095</p>
+
+<p>📍 Your Cake Shop Address</p>
+
+<p>
+For custom cakes and special orders,
+contact us directly on WhatsApp.
+</p>
+
 </section>
 
+
 <footer>
-<p>© 2026 Sweet Crumbs • Freshly Baked With Love 🎂</p>
+
+<p>© 2026 Sweet Crumbs</p>
+
+<p>Fresh Cakes • Sweet Memories</p>
+
 </footer>
 
-<div class="modal" id="modal">
-<div class="box">
 
-<button class="close" onclick="closeCart()">×</button>
+<!-- WHATSAPP -->
 
-<h2>Your Cart 🛒</h2>
-<br>
+<a
+class="whatsapp"
+href="https://wa.me/919907527095?text=Hi%20Sweet%20Crumbs%2C%20I%20want%20to%20order%20a%20cake."
+target="_blank">
 
-<div id="cart"></div>
+💬 Order on WhatsApp
 
-<h3>Total: ₹<span id="total">0</span></h3>
-<br>
+</a>
 
-<label>Your Name</label>
-<input id="name" placeholder="Enter your name">
 
-<label>Phone Number</label>
-<input id="phone" placeholder="Enter phone number">
+<!-- CART MODAL -->
 
-<label>Delivery Address</label>
-<textarea id="address" placeholder="Enter delivery address"></textarea>
+<div class="modal" id="cartModal">
 
-<label>Delivery Option</label>
-<select id="delivery">
-<option>Home Delivery</option>
-<option>Store Pickup</option>
-</select>
+<div class="cart-box">
 
-<button class="order" onclick="order()">📲 Order on WhatsApp</button>
+<span class="close" onclick="closeCart()">×</span>
+
+<h2>🛒 Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<h3 id="cartTotal"></h3>
+
+<button class="checkout" onclick="checkoutWhatsApp()">
+💬 Order on WhatsApp
+</button>
 
 </div>
+
 </div>
+
 
 <script>
 
-const cakes=[
-{
-name:"Chocolate Truffle",
-type:"chocolate",
-price:699,
-img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Strawberry Dream",
-type:"birthday",
-price:649,
-img:"https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Classic Birthday",
-type:"birthday",
-price:599,
-img:"https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Eggless Chocolate",
-type:"eggless",
-price:749,
-img:"https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Red Velvet",
-type:"birthday",
-price:799,
-img:"https://images.unsplash.com/photo-1586788224331-947f68671cf1?auto=format&fit=crop&w=700&q=80"
-},
-{
-name:"Chocolate Celebration",
-type:"chocolate",
-price:899,
-img:"https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=700&q=80"
-}
-];
+let cart = [];
 
-let cart=[];
 
-function show(type="all"){
-const box=document.getElementById("products");
-box.innerHTML="";
+function addToCart(name,price){
 
-cakes.filter(c=>type==="all"||c.type===type).forEach((c,i)=>{
-box.innerHTML+=`
-<div class="card">
-<img src="${c.img}">
-<div class="card-body">
-<h3>${c.name}</h3>
-<p>Fresh premium cake</p>
-<div class="price">Starting ₹${c.price}</div>
+let existing = cart.find(item => item.name === name);
 
-<select id="size${i}">
-<option value="0">0.5 kg</option>
-<option value="200">1 kg (+₹200)</option>
-<option value="400">1.5 kg (+₹400)</option>
-<option value="600">2 kg (+₹600)</option>
-</select>
+if(existing){
 
-<button class="add" onclick="add(${i},${c.price},'${c.name}')">Add to Cart</button>
-</div>
-</div>`;
-});
-}
+existing.quantity++;
 
-function add(i,price,name){
-
-let extra=document.getElementById("size"+i).value;
-
-let size=document.getElementById("size"+i).selectedOptions[0].text;
+}else{
 
 cart.push({
 name:name,
-size:size,
-price:Number(price)+Number(extra)
+price:price,
+quantity:1
 });
-
-update();
-
-alert(name+" added to cart!");
 
 }
 
-function update(){
+updateCart();
 
-document.getElementById("count").innerText=cart.length;
+alert(name + " added to cart!");
 
-let box=document.getElementById("cart");
-box.innerHTML="";
-let total=0;
+}
 
-cart.forEach((c,i)=>{
-total+=c.price;
 
-box.innerHTML+=`
+function updateCart(){
+
+let count = 0;
+
+cart.forEach(item=>{
+count += item.quantity;
+});
+
+document.getElementById("cartCount").innerText = count;
+
+renderCart();
+
+}
+
+
+function renderCart(){
+
+let container = document.getElementById("cartItems");
+
+let total = 0;
+
+if(cart.length === 0){
+
+container.innerHTML =
+'<div class="empty">Your cart is empty 🎂</div>';
+
+document.getElementById("cartTotal").innerText = "";
+
+return;
+
+}
+
+
+container.innerHTML = "";
+
+
+cart.forEach((item,index)=>{
+
+let itemTotal = item.price * item.quantity;
+
+total += itemTotal;
+
+container.innerHTML += `
+
 <div class="cart-item">
+
 <div>
-<b>${c.name}</b><br>
-<small>${c.size}</small>
+<strong>${item.name}</strong>
+<br>
+₹${item.price} × ${item.quantity}
 </div>
-<b>₹${c.price}</b>
-<button onclick="removeItem(${i})">❌</button>
-</div>`;
+
+<div class="qty">
+
+<button onclick="changeQty(${index},-1)">−</button>
+
+<span> ${item.quantity} </span>
+
+<button onclick="changeQty(${index},1)">+</button>
+
+</div>
+
+</div>
+
+`;
+
 });
 
-document.getElementById("total").innerText=total;
+
+document.getElementById("cartTotal").innerText =
+"Total: ₹" + total;
+
 }
 
-function removeItem(i){
-cart.splice(i,1);
-update();
+
+function changeQty(index,change){
+
+cart[index].quantity += change;
+
+if(cart[index].quantity <= 0){
+
+cart.splice(index,1);
+
 }
+
+updateCart();
+
+}
+
 
 function openCart(){
-document.getElementById("modal").style.display="block";
-update();
+
+document.getElementById("cartModal").style.display = "block";
+
+renderCart();
+
 }
+
 
 function closeCart(){
-document.getElementById("modal").style.display="none";
+
+document.getElementById("cartModal").style.display = "none";
+
 }
 
-function order(){
 
-if(cart.length===0){
-alert("Please add a cake first.");
+function checkoutWhatsApp(){
+
+if(cart.length === 0){
+
+alert("Please add a cake to your cart first!");
+
 return;
+
 }
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let address=document.getElementById("address").value;
-let delivery=document.getElementById("delivery").value;
 
-if(!name||!phone||!address){
-alert("Please fill all details.");
-return;
-}
+let message =
+"Hi Sweet Crumbs! I want to order:%0A%0A";
 
-let total=cart.reduce((s,c)=>s+c.price,0);
+let total = 0;
 
-let message="Hello Sweet Crumbs!%0A%0A";
-message+="I want to place an order:%0A%0A";
 
-cart.forEach(c=>{
-message+="🎂 "+c.name+" - "+c.size+" - ₹"+c.price+"%0A";
+cart.forEach(item=>{
+
+let itemTotal = item.price * item.quantity;
+
+total += itemTotal;
+
+message +=
+"🎂 " + item.name +
+" × " + item.quantity +
+" = ₹" + itemTotal + "%0A";
+
 });
 
-message+="%0A💰 Total: ₹"+total;
-message+="%0A👤 Name: "+encodeURIComponent(name);
-message+="%0A📞 Phone: "+encodeURIComponent(phone);
-message+="%0A📍 Address: "+encodeURIComponent(address);
-message+="%0A🚚 "+encodeURIComponent(delivery);
 
-window.open("https://wa.me/919999999999?text="+message,"_blank");
+message +=
+"%0A💰 Total: ₹" + total;
+
+
+window.open(
+"https://wa.me/919907527095?text=" + message,
+"_blank"
+);
+
 }
 
-function filter(type,button){
 
-document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+function filterCakes(category,button){
+
+let cards =
+document.querySelectorAll(".card");
+
+document
+.querySelectorAll(".categories button")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
 
 button.classList.add("active");
 
-show(type);
+
+cards.forEach(card=>{
+
+if(
+category === "all" ||
+card.dataset.category === category
+){
+
+card.style.display = "block";
+
+}else{
+
+card.style.display = "none";
+
 }
 
-show();
+});
+
+}
 
 </script>
 
